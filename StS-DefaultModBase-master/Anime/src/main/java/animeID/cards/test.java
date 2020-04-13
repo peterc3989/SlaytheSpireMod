@@ -16,8 +16,6 @@ import static animeID.DefaultMod.makeCardPath;
 public class test extends AbstractDynamicCard {
 
     /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
      * TOUCH Deal 30(35) damage.
      */
 

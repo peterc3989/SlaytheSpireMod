@@ -13,11 +13,8 @@ import static animeID.DefaultMod.makeCardPath;
 public class DefaultCommonSkill extends AbstractDynamicCard {
 
     /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
      * Defend Gain 5 (8) block.
      */
-
 
     // TEXT DECLARATION
 
@@ -25,7 +22,6 @@ public class DefaultCommonSkill extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
-
 
     // STAT DECLARATION 	
 
