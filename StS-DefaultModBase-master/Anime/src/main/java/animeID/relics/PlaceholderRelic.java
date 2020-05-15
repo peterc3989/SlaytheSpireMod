@@ -3,11 +3,11 @@ package animeID.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.util.TextureLoader;
 
-import static animeID.DefaultMod.makeRelicOutlinePath;
-import static animeID.DefaultMod.makeRelicPath;
+import static animeID.MyHeroMod.makeRelicOutlinePath;
+import static animeID.MyHeroMod.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,7 +18,7 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
+    public static final String ID = MyHeroMod.makeID("PlaceholderRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));

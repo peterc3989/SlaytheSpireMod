@@ -1,5 +1,10 @@
 package animeID.characters;
 
+import animeID.cards.CommonAttacks.Mezo;
+import animeID.cards.CommonSkills.*;
+import animeID.cards.RarePowers.*;
+import animeID.cards.RareSkills.*;
+import animeID.cards.UncommonSkills.*;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -21,7 +26,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.cards.*;
 import animeID.relics.DefaultClickableRelic;
 import animeID.relics.PlaceholderRelic;
@@ -29,7 +34,7 @@ import animeID.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
-import static animeID.DefaultMod.*;
+import static animeID.MyHeroMod.*;
 import static animeID.characters.TheDefault.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
@@ -37,7 +42,7 @@ import static animeID.characters.TheDefault.Enums.COLOR_GRAY;
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
 public class TheDefault extends CustomPlayer {
-    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+    public static final Logger logger = LogManager.getLogger(MyHeroMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
     // These are enums for your Characters color (both general color and for the card library) as well as
@@ -64,7 +69,7 @@ public class TheDefault extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 9;
+    public static final int CARD_DRAW = 6;
     public static final int ORB_SLOTS = 3;
 
     // =============== /BASE STATS/ =================
@@ -156,9 +161,9 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(DefaultCommonAttack.ID);
+        retVal.add(Mezo.ID);
         retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(test.ID);
+        retVal.add(DefaultRareAttack.ID);
 
         retVal.add(DefaultCommonSkill.ID);
         retVal.add(DefaultUncommonSkill.ID);
@@ -166,11 +171,17 @@ public class TheDefault extends CustomPlayer {
 
         retVal.add(DefaultCommonPower.ID);
         retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
+
 
         retVal.add(DefaultAttackWithVariable.ID);
         retVal.add(DefaultSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
+
+        retVal.add(Kaminari.ID);
+        retVal.add(AllMight.ID);
+        retVal.add(Mineta.ID);
+        retVal.add(Shigaraki.ID);
+        retVal.add(PlusUltra.ID);
+
         return retVal;
     }
 
@@ -219,7 +230,7 @@ public class TheDefault extends CustomPlayer {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return animeID.DefaultMod.DEFAULT_GRAY;
+        return MyHeroMod.DEFAULT_GRAY;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -256,14 +267,14 @@ public class TheDefault extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return animeID.DefaultMod.DEFAULT_GRAY;
+        return MyHeroMod.DEFAULT_GRAY;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return animeID.DefaultMod.DEFAULT_GRAY;
+        return MyHeroMod.DEFAULT_GRAY;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

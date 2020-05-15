@@ -1,9 +1,13 @@
 package animeID;
 
+import animeID.cards.CommonSkills.*;
+import animeID.cards.CommonAttacks.*;
+import animeID.cards.RareSkills.*;
+import animeID.cards.RarePowers.*;
+import animeID.cards.UncommonSkills.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -14,7 +18,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -23,12 +26,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import animeID.cards.*;
 import animeID.characters.TheDefault;
-import animeID.events.IdentityCrisisEvent;
-import animeID.potions.PlaceholderPotion;
-import animeID.relics.BottledPlaceholderRelic;
-import animeID.relics.DefaultClickableRelic;
-import animeID.relics.PlaceholderRelic;
-import animeID.relics.PlaceholderRelic2;
 import animeID.util.IDCheckDontTouchPls;
 import animeID.util.TextureLoader;
 import animeID.variables.DefaultCustomVariable;
@@ -41,7 +38,7 @@ import java.util.Properties;
 
 
 @SpireInitializer
-public class DefaultMod implements
+public class MyHeroMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -50,7 +47,7 @@ public class DefaultMod implements
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
-    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+    public static final Logger logger = LogManager.getLogger(MyHeroMod.class.getName());
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
@@ -134,7 +131,7 @@ public class DefaultMod implements
     
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
     
-    public DefaultMod() {
+    public MyHeroMod() {
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
@@ -175,7 +172,7 @@ public class DefaultMod implements
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson();
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); //
-        InputStream in = DefaultMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
+        InputStream in = MyHeroMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class);
         logger.info("You are attempting to set your mod ID as: " + ID);
         if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) {
@@ -195,9 +192,9 @@ public class DefaultMod implements
     private static void pathCheck() {
         Gson coolG = new Gson();
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        InputStream in = DefaultMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
+        InputStream in = MyHeroMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json");
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class);
-        String packageName = DefaultMod.class.getPackage().getName();
+        String packageName = MyHeroMod.class.getPackage().getName();
         FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources");
         if (!modID.equals(EXCEPTION_STRINGS.DEVID)) {
             if (!packageName.equals(getModID())) {
@@ -215,7 +212,7 @@ public class DefaultMod implements
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing Default Mod. Hi. =========================");
-        DefaultMod defaultmod = new DefaultMod();
+        MyHeroMod defaultmod = new MyHeroMod();
         logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
     }
     
@@ -228,7 +225,7 @@ public class DefaultMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheDefault.Enums.THE_DEFAULT.toString());
         
-        BaseMod.addCharacter(new TheDefault("Kazuma", TheDefault.Enums.THE_DEFAULT),
+        BaseMod.addCharacter(new TheDefault("TheHero", TheDefault.Enums.THE_DEFAULT),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheDefault.Enums.THE_DEFAULT);
         
         receiveEditPotions();
@@ -251,7 +248,7 @@ public class DefaultMod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
+        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("Checkbox.",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enablePlaceholder, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
@@ -354,10 +351,24 @@ public class DefaultMod implements
         BaseMod.addCard(new DefaultUncommonSkill());
         BaseMod.addCard(new DefaultUncommonAttack());
         BaseMod.addCard(new DefaultUncommonPower());
-        BaseMod.addCard(new test());
+        BaseMod.addCard(new DefaultRareAttack());
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
-        
+        BaseMod.addCard(new TodorokiShoto());
+        BaseMod.addCard(new RedRiot());
+        BaseMod.addCard(new AllMight());
+        BaseMod.addCard(new Endeavor());
+        BaseMod.addCard(new Deku());
+        BaseMod.addCard(new MirioTogata());
+        BaseMod.addCard(new ToruHagakure());
+        BaseMod.addCard(new PlusUltra());
+        BaseMod.addCard(new Mezo());
+        BaseMod.addCard(new Uraraka());
+        BaseMod.addCard(new Mineta());
+        BaseMod.addCard(new Ojiro());
+        BaseMod.addCard(new Kaminari());
+        BaseMod.addCard(new Shigaraki());
+
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library
@@ -370,10 +381,24 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
         UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
         UnlockTracker.unlockCard(DefaultUncommonPower.ID);
-        UnlockTracker.unlockCard(test.ID);
+        UnlockTracker.unlockCard(DefaultRareAttack.ID);
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
-        
+        UnlockTracker.unlockCard(TodorokiShoto.ID);
+        UnlockTracker.unlockCard(RedRiot.ID);
+        UnlockTracker.unlockCard(AllMight.ID);
+        UnlockTracker.unlockCard(Endeavor.ID);
+        UnlockTracker.unlockCard(Deku.ID);
+        UnlockTracker.unlockCard(MirioTogata.ID);
+        UnlockTracker.unlockCard(PlusUltra.ID);
+        UnlockTracker.unlockCard(ToruHagakure.ID);
+        UnlockTracker.unlockCard(Mineta.ID);
+        UnlockTracker.unlockCard(Kaminari.ID);
+        UnlockTracker.unlockCard(Uraraka.ID);
+        UnlockTracker.unlockCard(Ojiro.ID);
+        UnlockTracker.unlockCard(Mezo.ID);
+        UnlockTracker.unlockCard(Shigaraki.ID);
+
         logger.info("Done adding cards!");
     }
 

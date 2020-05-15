@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.characters.TheDefault;
 import animeID.powers.RarePower;
 
-import static animeID.DefaultMod.makeCardPath;
+import static animeID.MyHeroMod.makeCardPath;
 
 public class DefaultRarePower extends AbstractDynamicCard {
 
@@ -21,7 +21,7 @@ public class DefaultRarePower extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultRarePower.class.getSimpleName());
+    public static final String ID = MyHeroMod.makeID(DefaultRarePower.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     // /TEXT DECLARATION/

@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.characters.TheDefault;
 
-import static animeID.DefaultMod.makeCardPath;
+import static animeID.MyHeroMod.makeCardPath;
 
 public class DefaultCommonAttack extends CustomCard {
 
@@ -23,7 +23,7 @@ public class DefaultCommonAttack extends CustomCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(DefaultCommonAttack.class.getSimpleName());
+    public static final String ID = MyHeroMod.makeID(DefaultCommonAttack.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public static final String IMG = makeCardPath("Attack.png");

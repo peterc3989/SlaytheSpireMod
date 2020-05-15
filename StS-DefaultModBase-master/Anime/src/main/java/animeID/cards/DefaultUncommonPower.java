@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.actions.UncommonPowerAction;
 import animeID.characters.TheDefault;
 
-import static animeID.DefaultMod.makeCardPath;
+import static animeID.MyHeroMod.makeCardPath;
 
 public class DefaultUncommonPower extends AbstractDynamicCard {
 
@@ -22,7 +22,7 @@ public class DefaultUncommonPower extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultUncommonPower.class.getSimpleName());
+    public static final String ID = MyHeroMod.makeID(DefaultUncommonPower.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -6,5 +6,9 @@
 "animeID:RarePower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"animeID:ShigarakiPower": {
+        "NAME": "Shigaraki",
+        "DESCRIPTIONS": ["Exhaust everything.", " enemy." , " enemies."]
 }
 }

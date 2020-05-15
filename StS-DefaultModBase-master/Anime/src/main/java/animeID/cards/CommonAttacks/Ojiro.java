@@ -1,32 +1,28 @@
-package animeID.cards;
+package animeID.cards.CommonAttacks;
 
+import animeID.MyHeroMod;
+import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import animeID.MyHeroMod;
+
 import animeID.characters.TheDefault;
 
 import static animeID.MyHeroMod.makeCardPath;
 
-public class DefaultAttackWithVariable extends AbstractDynamicCard {
+public class Ojiro extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Special Strike: Deal 7 (*) damage times the energy you currently have.
-     */
+    public static final String ID = MyHeroMod.makeID(Ojiro.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    // TEXT DECLARATION
+    public static final String IMG = makeCardPath("Ojiro.png");//
 
-    public static final String ID = MyHeroMod.makeID(DefaultAttackWithVariable.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
 
     // /TEXT DECLARATION/
-
 
     // STAT DECLARATION
 
@@ -36,33 +32,26 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 7;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int UPGRADED_COST = 1;
 
-    public int specialDamage;
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_PLUS_DMG = 10;
 
     // /STAT DECLARATION/
 
-    public DefaultAttackWithVariable() {
+    public Ojiro() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-
-        isMultiDamage = true;
     }
+
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Create an int which equals to your current energy.
-        int effect = EnergyPanel.totalCount;
-
-        // For each energy, create 1 damage action.
-        for (int i = 0; i < effect; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.FIRE));
-        }
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
+
 
     // Upgraded stats.
     @Override
@@ -70,6 +59,7 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

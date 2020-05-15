@@ -1,32 +1,29 @@
-package animeID.cards;
+package animeID.cards.CommonAttacks;
 
+import animeID.MyHeroMod;
+import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import animeID.MyHeroMod;
+
 import animeID.characters.TheDefault;
 
 import static animeID.MyHeroMod.makeCardPath;
 
-public class DefaultAttackWithVariable extends AbstractDynamicCard {
+public class Mezo extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Special Strike: Deal 7 (*) damage times the energy you currently have.
-     */
+    public static final String ID = MyHeroMod.makeID(Mezo.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    // TEXT DECLARATION
+    public static final String IMG = makeCardPath("Mezo.png");//
 
-    public static final String ID = MyHeroMod.makeID(DefaultAttackWithVariable.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
 
     // /TEXT DECLARATION/
-
 
     // STAT DECLARATION
 
@@ -36,33 +33,31 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 7;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int UPGRADED_COST = 1;
 
-    public int specialDamage;
+    private static final int DAMAGE = 3;
+    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int MAGIC = 3;
+    private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
 
-    public DefaultAttackWithVariable() {
+    public Mezo() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        isMultiDamage = true;
+        magicNumber = baseMagicNumber = MAGIC;
     }
+
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Create an int which equals to your current energy.
-        int effect = EnergyPanel.totalCount;
-
-        // For each energy, create 1 damage action.
-        for (int i = 0; i < effect; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AbstractGameAction.AttackEffect.FIRE));
+        for(int i = 0; i < this.magicNumber; ++i) {
+            AbstractDungeon.actionManager.addToBottom(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
+
 
     // Upgraded stats.
     @Override
@@ -70,6 +65,8 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

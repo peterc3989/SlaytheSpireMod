@@ -6,11 +6,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.characters.TheDefault;
-import animeID.orbs.DefaultOrb;
+import com.megacrit.cardcrawl.orbs.Dark;
+import com.megacrit.cardcrawl.orbs.Frost;
 
-import static animeID.DefaultMod.makeCardPath;
+import static animeID.MyHeroMod.makeCardPath;
 
 public class OrbSkill extends AbstractDynamicCard {
 
@@ -22,7 +23,7 @@ public class OrbSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(OrbSkill.class.getSimpleName());
+    public static final String ID = MyHeroMod.makeID(OrbSkill.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public static final String IMG = makeCardPath("Skill.png");
@@ -53,7 +54,8 @@ public class OrbSkill extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new DefaultOrb())); // Channel a Default Orb.
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost())); // Channel a Default Orb.
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Dark())); // Channel a Default Orb.
 
     }
 

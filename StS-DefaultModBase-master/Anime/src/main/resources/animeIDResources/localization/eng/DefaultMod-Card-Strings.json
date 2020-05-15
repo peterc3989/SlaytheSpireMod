@@ -49,5 +49,54 @@
   "animeID:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "animeID:TodorokiShoto": {
+    "NAME": "Todoroki Shoto",
+    "DESCRIPTION": "Channel a [#ff0000]Fire[] and [#0000ff]Ice[] orb."
+  },
+  "animeID:RedRiot": {
+    "NAME": "Unbreakable",
+    "DESCRIPTION": "Gain !M! Buffer and 4 Plated Armor."
+  },
+  "animeID:AllMight": {
+    "NAME": "AllMight",
+    "DESCRIPTION": "Gain !M! Strength. NL Lose 4 HP. NL Frail for 2 turns."
+  },
+  "animeID:MirioTogata": {
+    "NAME": "MirioTogata",
+    "DESCRIPTION": "Gain 3 Intangible. NL Exhaust."
+  },
+  "animeID:Endeavor": {
+    "NAME": "Endeavor",
+    "DESCRIPTION": "Channel 3 [#ff0000]Fire[]."
+  },
+  "animeID:Deku": {
+    "NAME": "Deku",
+    "DESCRIPTION": "Gain 10 Strength this turn. NL Exhaust."
+  },
+  "animeID:PlusUltra": {
+    "NAME": "Plus Ultra",
+    "DESCRIPTION": "Gain 3 Energy. NL Exhaust."
+  },
+  "animeID:ToruHagakure": {
+    "NAME": "ToruHagakure",
+    "DESCRIPTION": ""
+  },
+  "animeID:Mineta": {
+  "NAME": "Mineta",
+    "DESCRIPTION": "Apply !M! Weak. NL Retain a card."
+  },
+  "animeID:Kaminari": {
+  "NAME": "Kaminari",
+    "DESCRIPTION": "Channel 1 Lightning. NL Become Confused."
+  },
+  "animeID:Uraraka": {
+  "NAME": "Uraraka",
+    "DESCRIPTION": "Lower the cost of a random NL card in hand to 0."
+  },
+  "animeID:Shigaraki": {
+  "NAME": "Shigaraki",
+    "DESCRIPTION": "Exhaust every card you play."
   }
+
 }

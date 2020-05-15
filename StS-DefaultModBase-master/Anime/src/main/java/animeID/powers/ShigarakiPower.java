@@ -15,7 +15,7 @@ import animeID.MyHeroMod;
 import animeID.cards.DefaultRareAttack;
 import animeID.util.TextureLoader;
 
-public class RarePower extends AbstractPower implements CloneablePowerInterface {
+public class ShigarakiPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
     public static final String POWER_ID = MyHeroMod.makeID("RarePower");
@@ -27,7 +27,7 @@ public class RarePower extends AbstractPower implements CloneablePowerInterface 
     private static final Texture tex84 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power84.png");
     private static final Texture tex32 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power32.png");
 
-    public RarePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public ShigarakiPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -46,21 +46,9 @@ public class RarePower extends AbstractPower implements CloneablePowerInterface 
     }
 
     @Override
-    public void atStartOfTurn() { // At the start of your turn
-        AbstractCard playCard = new DefaultRareAttack(); // Declare Card - the DefaultRareAttack card. We will name it 'playCard'.
-        AbstractMonster targetMonster = AbstractDungeon.getRandomMonster(); // Declare Target - Random Monster. We will name the monster 'targetMonster'.
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+    card.exhaust=true;
 
-        playCard.freeToPlayOnce = true; //Self Explanatory
-
-        if (playCard.type != AbstractCard.CardType.POWER) {
-            playCard.purgeOnUse = true;
-        }
-
-        // Remove completely on use (Not Exhaust). A note - you don't need the '{}' in this if statement,
-        // as it's just 1 line directly under. You can remove them, if you want. In fact, you can even put it all on 1 line:
-        //  if (playCard.type != AbstractCard.CardType.POWER) playCard.purgeOnUse = true; - works identically
-
-        AbstractDungeon.actionManager.addToBottom(new QueueCardAction(playCard, targetMonster)); // Play the card on the target.
     }
 
     @Override

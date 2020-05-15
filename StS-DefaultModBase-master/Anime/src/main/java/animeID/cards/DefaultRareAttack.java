@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
-import animeID.DefaultMod;
+import animeID.MyHeroMod;
 import animeID.characters.TheDefault;
 
-import static animeID.DefaultMod.makeCardPath;
+import static animeID.MyHeroMod.makeCardPath;
 
-public class test extends AbstractDynamicCard {
+public class DefaultRareAttack extends AbstractDynamicCard {
 
     /*
      * TOUCH Deal 30(35) damage.
@@ -22,7 +22,7 @@ public class test extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(test.class.getSimpleName());
+    public static final String ID = MyHeroMod.makeID(DefaultRareAttack.class.getSimpleName());
     public static final String IMG = makeCardPath("Attack.png");
 
     // /TEXT DECLARATION/
@@ -43,7 +43,7 @@ public class test extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public test() {
+    public DefaultRareAttack() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
