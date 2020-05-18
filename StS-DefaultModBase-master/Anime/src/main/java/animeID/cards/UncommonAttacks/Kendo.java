@@ -1,10 +1,12 @@
-package animeID.cards.CommonSkills;
+package animeID.cards.UncommonAttacks;
 
 import animeID.MyHeroMod;
 import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,16 +14,16 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import animeID.characters.TheDefault;
-import com.megacrit.cardcrawl.powers.SlowPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 
 import static animeID.MyHeroMod.makeCardPath;
 
-public class Mineta extends AbstractDynamicCard {
+public class Kendo extends AbstractDynamicCard {
 
-    public static final String ID = MyHeroMod.makeID(Mineta.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = MyHeroMod.makeID(Kendo.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    public static final String IMG = makeCardPath("Mineta.png");//
+    public static final String IMG = makeCardPath("Kendo.png");//
 
 
     // /TEXT DECLARATION/
@@ -30,30 +32,32 @@ public class Mineta extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 1;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 4;
 
+    private static final int DAMAGE = 9;
+    private static final int UPGRADE_PLUS_DMG = 13;
 
     // /STAT DECLARATION/
 
-    public Mineta() {
+    public Kendo() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC;
+        baseDamage = DAMAGE;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m,p,new WeakPower(m,this.magicNumber,false),1));
-        AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p,1));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m,p,new SlowPower(m,this.magicNumber),1));
-
+        if (m != null) {
+            this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
+        }
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
 
@@ -62,7 +66,7 @@ public class Mineta extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }

@@ -1,10 +1,16 @@
 package animeID.characters;
 
-import animeID.cards.CommonAttacks.Mezo;
-import animeID.cards.CommonSkills.*;
+import animeID.cards.CommonAttacks.Aoyama;
+import animeID.cards.CommonAttacks.Bakugo;
+import animeID.cards.RareAttacks.ProminenceBurn;
 import animeID.cards.RarePowers.*;
 import animeID.cards.RareSkills.*;
+import animeID.cards.UncommonAttacks.Kendo;
+import animeID.cards.UncommonAttacks.Rappa;
+import animeID.cards.UncommonAttacks.Twice;
+import animeID.cards.UncommonSkills.Hatsume;
 import animeID.cards.UncommonSkills.*;
+import animeID.relics.HeroCostume;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -69,7 +75,7 @@ public class TheDefault extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 6;
+    public static final int CARD_DRAW = 8;
     public static final int ORB_SLOTS = 3;
 
     // =============== /BASE STATS/ =================
@@ -161,26 +167,16 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(Mezo.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
-
-        retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
-
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-
-
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(DefaultSecondMagicNumberSkill.ID);
-
-        retVal.add(Kaminari.ID);
-        retVal.add(AllMight.ID);
-        retVal.add(Mineta.ID);
-        retVal.add(Shigaraki.ID);
+        retVal.add(Bakugo.ID);
+        retVal.add(Twice.ID);
         retVal.add(PlusUltra.ID);
+        retVal.add(Kendo.ID);
+        retVal.add(Hatsume.ID);
+        retVal.add(ProminenceBurn.ID);
+        retVal.add(Muscular.ID);
+        retVal.add(Rappa.ID);
+        retVal.add(Chisaki.ID);
+        retVal.add(Aoyama.ID);
 
         return retVal;
     }
@@ -189,13 +185,16 @@ public class TheDefault extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
+       // retVal.add(PlaceholderRelic.ID);
+       // retVal.add(PlaceholderRelic2.ID);
+       // retVal.add(DefaultClickableRelic.ID);
+        retVal.add(HeroCostume.ID);
 
         UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
         UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+
+        UnlockTracker.markRelicAsSeen(HeroCostume.ID);
 
         return retVal;
     }

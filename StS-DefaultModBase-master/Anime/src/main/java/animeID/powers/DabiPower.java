@@ -1,8 +1,10 @@
 package animeID.powers;
 
+import animeID.orbs.DefaultOrb;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,10 +16,10 @@ import animeID.MyHeroMod;
 import animeID.cards.DefaultRareAttack;
 import animeID.util.TextureLoader;
 
-public class RarePower extends AbstractPower implements CloneablePowerInterface {
+public class DabiPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = MyHeroMod.makeID("RarePower");
+    public static final String POWER_ID = MyHeroMod.makeID("DabiPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -26,7 +28,7 @@ public class RarePower extends AbstractPower implements CloneablePowerInterface 
     private static final Texture tex84 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power84.png");
     private static final Texture tex32 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power32.png");
 
-    public RarePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public DabiPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -41,37 +43,21 @@ public class RarePower extends AbstractPower implements CloneablePowerInterface 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
-        updateDescription();
     }
 
     @Override
-    public void atStartOfTurn() { // At the start of your turn
-        AbstractCard playCard = new DefaultRareAttack(); // Declare Card - the DefaultRareAttack card. We will name it 'playCard'.
-        AbstractMonster targetMonster = AbstractDungeon.getRandomMonster(); // Declare Target - Random Monster. We will name the monster 'targetMonster'.
-
-        playCard.freeToPlayOnce = true; //Self Explanatory
-
-        if (playCard.type != AbstractCard.CardType.POWER) {
-            playCard.purgeOnUse = true;
-        }
-
-        // Remove completely on use (Not Exhaust). A note - you don't need the '{}' in this if statement,
-        // as it's just 1 line directly under. You can remove them, if you want. In fact, you can even put it all on 1 line:
-        //  if (playCard.type != AbstractCard.CardType.POWER) playCard.purgeOnUse = true; - works identically
-
+    public void onExhaust(AbstractCard card) {
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new DefaultOrb()));
     }
+
+
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new RarePower(owner, source, amount);
+        return new DabiPower(owner, source, amount);
     }
 }

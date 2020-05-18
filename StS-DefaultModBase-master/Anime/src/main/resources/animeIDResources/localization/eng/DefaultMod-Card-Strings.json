@@ -7,36 +7,15 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL animeID:Multiword_Keyword."
   },
-  "animeID:DefaultCommonPower": {
-    "NAME": "Hold Place",
-    "DESCRIPTION": "Gain !M! animeID:Keyword.",
-    "UPGRADE_DESCRIPTION": "Gain !M! animeID:Keywords."
-  },
-  "animeID:DefaultUncommonAttack": {
-    "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! Damage."
-  },
-  "animeID:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
-  },
   "animeID:DefaultUncommonPower": {
     "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X animeID:Keywords.",
+    "DESCRIPTION": "Gain X animeID:this.",
     "UPGRADE_DESCRIPTION": "Gain X +1 animeID:Keywords."
-  },
-  "animeID:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! Damage."
   },
   "animeID:DefaultRareSkill": {
     "NAME": "For Each Loop x2",
     "DESCRIPTION": "Apply !M! vulnerable to all enemies, 2 times.",
     "UPGRADE_DESCRIPTION": "Apply !M! vulnerable to all enemies, 3 times."
-  },
-  "animeID:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
   },
   "animeID:DefaultAttackWithVariable": {
     "NAME": "Special Strike",
@@ -92,11 +71,115 @@
   },
   "animeID:Uraraka": {
   "NAME": "Uraraka",
-    "DESCRIPTION": "Lower the cost of a random NL card in hand to 0."
+    "DESCRIPTION": "Lower the cost of a random Card in hand to 0."
   },
   "animeID:Shigaraki": {
   "NAME": "Shigaraki",
     "DESCRIPTION": "Exhaust every card you play."
+  },
+  "animeID:Ojiro": {
+  "NAME": "Ojiro",
+    "DESCRIPTION": "Exhaust every card you play."
+  },
+  "animeID:Mezo": {
+  "NAME": "Mezo",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "animeID:Momo": {
+  "NAME": "Momo",
+    "DESCRIPTION": "Draw and Discard !M! at the start of each turn."
+  },
+  "animeID:Tsuyu": {
+  "NAME": "Tsuyu",
+    "DESCRIPTION": "If you have at least 3 Cards at the end of your turn gain NL !M! Dexterity."
+  },
+  "animeID:Bakugo": {
+  "NAME": "Bakugo",
+    "DESCRIPTION": "Deal !D! to all enemies. NL On animeID:overkill generate a 0-cost copy of this card."
+  },
+  "animeID:EraserHead": {
+  "NAME": "EraserHead",
+    "DESCRIPTION": "Remove all enemy Buffs."
+  },
+  "animeID:Chisaki": {
+  "NAME": "Chisaki",
+    "DESCRIPTION": "At the start of each turn animeID:overhaul."
+  },
+  "animeID:Twice": {
+  "NAME": "Twice",
+    "DESCRIPTION": "Deal !D! damage. Add a copy of this card into your deck this battle."
+  },
+  "animeID:SkinnyGum": {
+  "NAME": "SkinnyGum",
+    "DESCRIPTION": "When you take damage this turn deal double the amount back."
+  },
+  "animeID:FatGum": {
+  "NAME": "FatGum",
+    "DESCRIPTION": "Gain !M! Regen."
+  },
+  "animeID:Hawks": {
+  "NAME": "Hawks",
+    "DESCRIPTION": "Gain Flight. Generate a Shiv every turn."
+  },
+  "animeID:Hatsume": {
+  "NAME": "Hatsume",
+    "DESCRIPTION": "Upgrade a Card in hand. Gain 1 Artifact."
+  },
+  "animeID:Aoyama": {
+  "NAME": "Aoyama",
+    "DESCRIPTION": "Laser a Random enemy for !D!."
+  },
+  "animeID:USA_Smash": {
+  "NAME": "USA_Smash",
+    "DESCRIPTION": "Deal !D! damage to one enemy."
+  },
+  "animeID:ProminenceBurn": {
+  "NAME": "ProminenceBurn",
+    "DESCRIPTION": "Evoke your Orb 10 times."
+  },
+  "animeID:Rei": {
+  "NAME": "Rei",
+    "DESCRIPTION": "Gain !M! Orb slots and Channel !M! Frost Orbs."
+  },
+  "animeID:Dabi": {
+  "NAME": "Dabi",
+    "DESCRIPTION": "When you Exhaust Channel a Fire Orb."
+  },
+  "animeID:Kendo": {
+  "NAME": "Kendo",
+    "DESCRIPTION": "Deal !D! and apply 1 Vulnerable."
+  },
+  "animeID:TetsuTetsu": {
+  "NAME": "TetsuTetsu",
+    "DESCRIPTION": "Gain !M! Plated Armor."
+  },
+  "animeID:Muscular": {
+  "NAME": "Muscular",
+    "DESCRIPTION": "Gain 5 Strength and add 3 Curses into your deck this battle."
+  },
+  "animeID:Nomu": {
+  "NAME": "Nomu",
+    "DESCRIPTION": "Deal !M! damage for each Curse in your Exhaust Pile. Can't be Exhausted."
+  },
+  "animeID:Rappa": {
+  "NAME": "Rappa",
+    "DESCRIPTION": "Deal !D! damage. If enemy still has Block generate a 0-cost copy of this card."
+  },
+  "animeID:Tengai": {
+  "NAME": "Tengai",
+    "DESCRIPTION": "Gain !M! Block. Can't play any attacks this turn."
+  },
+  "animeID:Kirishima": {
+  "NAME": "Kirishima",
+    "DESCRIPTION": "Gain !M! Block. Can't play any attacks this turn."
+  },
+  "animeID:Iida": {
+  "NAME": "Iida",
+    "DESCRIPTION": "Discard !M! Cards. Gain !M! Energy."
+  },
+  "animeID:Eri": {
+  "NAME": "Eri",
+    "DESCRIPTION": "Retrieve a Card from the Exhaust pile at the start of your turn. If pile is empty take 5 damage."
   }
 
 }

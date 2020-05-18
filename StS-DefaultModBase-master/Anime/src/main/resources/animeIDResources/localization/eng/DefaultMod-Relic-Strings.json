@@ -13,6 +13,13 @@
       "At the start of each combat, gain #b1 #yStrength."
     ]
   },
+  "animeID:HeroCostume": {
+    "NAME": "HeroCostume",
+    "FLAVOR": "You feel stronger.",
+    "DESCRIPTIONS": [
+      "For every 10 Cards played, Heal 1."
+    ]
+  },
   "animeID:DefaultClickableRelic": {
     "NAME": "Right-Clicky Relic",
     "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",

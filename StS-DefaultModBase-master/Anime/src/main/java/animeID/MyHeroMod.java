@@ -1,10 +1,22 @@
 package animeID;
 
+import animeID.cards.CommonPowers.Momo;
+import animeID.cards.CommonPowers.Tsuyu;
 import animeID.cards.CommonSkills.*;
 import animeID.cards.CommonAttacks.*;
+import animeID.cards.RareAttacks.ProminenceBurn;
+import animeID.cards.RareAttacks.USA_Smash;
 import animeID.cards.RareSkills.*;
 import animeID.cards.RarePowers.*;
+import animeID.cards.UncommonAttacks.Kendo;
+import animeID.cards.UncommonAttacks.Nomu;
+import animeID.cards.UncommonAttacks.Rappa;
+import animeID.cards.UncommonAttacks.Twice;
+import animeID.cards.UncommonPowers.Dabi;
+import animeID.cards.UncommonSkills.Hatsume;
+import animeID.cards.UncommonPowers.Rei;
 import animeID.cards.UncommonSkills.*;
+import animeID.relics.HeroCostume;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -24,7 +36,6 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import animeID.cards.*;
 import animeID.characters.TheDefault;
 import animeID.util.IDCheckDontTouchPls;
 import animeID.util.TextureLoader;
@@ -39,12 +50,19 @@ import java.util.Properties;
 
 @SpireInitializer
 public class MyHeroMod implements
+        AddAudioSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber {
+
+    public void receiveAddAudio() {
+        BaseMod.addAudio("animeID:PlusUltra", "C:/spiremodattempt1/StS-DefaultModBase-master/StS-DefaultModBase-master/Anime/src/main/resources/audio/plusultra.ogg");
+        BaseMod.addAudio("animeID:ProminenceBurn", "C:/spiremodattempt1/StS-DefaultModBase-master/StS-DefaultModBase-master/Anime/src/main/resources/audio/ProminenceBurn.ogg");
+        BaseMod.addAudio("animeID:USA_Smash", "C:/spiremodattempt1/StS-DefaultModBase-master/StS-DefaultModBase-master/Anime/src/main/resources/audio/USA_Smash.ogg");
+    }
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(MyHeroMod.class.getName());
@@ -205,10 +223,8 @@ public class MyHeroMod implements
             }
         }
     }
-    
     // ====== YOU CAN EDIT AGAIN ======
-    
-    
+
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing Default Mod. Hi. =========================");
@@ -217,7 +233,6 @@ public class MyHeroMod implements
     }
     
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
-    
     
     // =============== LOAD THE CHARACTER =================
     
@@ -233,7 +248,6 @@ public class MyHeroMod implements
     }
     
     // =============== /LOAD THE CHARACTER/ =================
-    
     
     // =============== POST-INITIALIZE =================
     
@@ -269,7 +283,6 @@ public class MyHeroMod implements
         settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
-
         
         // =============== EVENTS =================
         
@@ -284,8 +297,7 @@ public class MyHeroMod implements
     }
     
     // =============== / POST-INITIALIZE/ =================
-    
-    
+
     // ================ ADD POTIONS ===================
     
     public void receiveEditPotions() {
@@ -312,20 +324,22 @@ public class MyHeroMod implements
         //BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
-        
+        BaseMod.addRelicToCustomPool(new HeroCostume(), TheDefault.Enums.COLOR_GRAY);
+
+
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
+
         //UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
         logger.info("Done adding relics!");
     }
-    
+
     // ================ /ADD RELICS/ ===================
-    
-    
+
+
     // ================ ADD CARDS ===================
-    
     @Override
     public void receiveEditCards() {
         logger.info("Adding variables");
@@ -338,22 +352,22 @@ public class MyHeroMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
-        // Add the cards
-        // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for  game not to crash
+        //You need 1 of each type and rarity (technically) for  game not to crash
         // when generating card rewards/shop screen items.
         
-        BaseMod.addCard(new OrbSkill());
-        BaseMod.addCard(new DefaultSecondMagicNumberSkill());
-        BaseMod.addCard(new DefaultCommonAttack());
-        BaseMod.addCard(new DefaultAttackWithVariable());
-        BaseMod.addCard(new DefaultCommonSkill());
-        BaseMod.addCard(new DefaultCommonPower());
-        BaseMod.addCard(new DefaultUncommonSkill());
-        BaseMod.addCard(new DefaultUncommonAttack());
-        BaseMod.addCard(new DefaultUncommonPower());
-        BaseMod.addCard(new DefaultRareAttack());
-        BaseMod.addCard(new DefaultRareSkill());
-        BaseMod.addCard(new DefaultRarePower());
+       // BaseMod.addCard(new OrbSkill());
+       // BaseMod.addCard(new DefaultSecondMagicNumberSkill());
+       // BaseMod.addCard(new DefaultCommonAttack());
+       // BaseMod.addCard(new DefaultAttackWithVariable());
+       // BaseMod.addCard(new DefaultCommonSkill());
+       // BaseMod.addCard(new DefaultCommonPower());
+       // BaseMod.addCard(new DefaultUncommonSkill());
+       // BaseMod.addCard(new DefaultUncommonAttack());
+       // BaseMod.addCard(new DefaultUncommonPower());
+       // BaseMod.addCard(new DefaultRareAttack());
+       // BaseMod.addCard(new DefaultRareSkill());
+       // BaseMod.addCard(new DefaultRarePower());
+
         BaseMod.addCard(new TodorokiShoto());
         BaseMod.addCard(new RedRiot());
         BaseMod.addCard(new AllMight());
@@ -368,22 +382,42 @@ public class MyHeroMod implements
         BaseMod.addCard(new Ojiro());
         BaseMod.addCard(new Kaminari());
         BaseMod.addCard(new Shigaraki());
+        BaseMod.addCard(new Tsuyu());
+        BaseMod.addCard(new Momo());
+        BaseMod.addCard(new Bakugo());
+        BaseMod.addCard(new EraserHead());
+        BaseMod.addCard(new Chisaki());
+        BaseMod.addCard(new Twice());
+        BaseMod.addCard(new USA_Smash());
+        BaseMod.addCard(new ProminenceBurn());
+        BaseMod.addCard(new SkinnyGum());
+        BaseMod.addCard(new FatGum());
+        BaseMod.addCard(new Aoyama());
+        BaseMod.addCard(new Hatsume());
+        BaseMod.addCard(new Mina());
+        BaseMod.addCard(new Rei());
+        BaseMod.addCard(new Dabi());
+        BaseMod.addCard(new TetsuTetsu());
+        BaseMod.addCard(new Kendo());
+        BaseMod.addCard(new Muscular());
+        BaseMod.addCard(new Nomu());
+        BaseMod.addCard(new Rappa());
+        BaseMod.addCard(new Kirishima());
+        BaseMod.addCard(new Eri());
 
         logger.info("Making sure the cards are unlocked.");
-        // Unlock the cards
-        // This is so that they are all "seen" in the library
-        UnlockTracker.unlockCard(OrbSkill.ID);
-        UnlockTracker.unlockCard(DefaultSecondMagicNumberSkill.ID);
-        UnlockTracker.unlockCard(DefaultCommonAttack.ID);
-        UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
-        UnlockTracker.unlockCard(DefaultCommonSkill.ID);
-        UnlockTracker.unlockCard(DefaultCommonPower.ID);
-        UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
-        UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
-        UnlockTracker.unlockCard(DefaultUncommonPower.ID);
-        UnlockTracker.unlockCard(DefaultRareAttack.ID);
-        UnlockTracker.unlockCard(DefaultRareSkill.ID);
-        UnlockTracker.unlockCard(DefaultRarePower.ID);
+        //UnlockTracker.unlockCard(OrbSkill.ID);
+        //UnlockTracker.unlockCard(DefaultSecondMagicNumberSkill.ID);
+        //UnlockTracker.unlockCard(DefaultCommonAttack.ID);
+       // UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
+       // UnlockTracker.unlockCard(DefaultCommonSkill.ID);
+       // UnlockTracker.unlockCard(DefaultCommonPower.ID);
+       // UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
+       // UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
+       // UnlockTracker.unlockCard(DefaultUncommonPower.ID);
+        //UnlockTracker.unlockCard(DefaultRareAttack.ID);
+       // UnlockTracker.unlockCard(DefaultRareSkill.ID);
+       // UnlockTracker.unlockCard(DefaultRarePower.ID);
         UnlockTracker.unlockCard(TodorokiShoto.ID);
         UnlockTracker.unlockCard(RedRiot.ID);
         UnlockTracker.unlockCard(AllMight.ID);
@@ -398,6 +432,28 @@ public class MyHeroMod implements
         UnlockTracker.unlockCard(Ojiro.ID);
         UnlockTracker.unlockCard(Mezo.ID);
         UnlockTracker.unlockCard(Shigaraki.ID);
+        UnlockTracker.unlockCard(Momo.ID);
+        UnlockTracker.unlockCard(Tsuyu.ID);
+        UnlockTracker.unlockCard(Bakugo.ID);
+        UnlockTracker.unlockCard(EraserHead.ID);
+        UnlockTracker.unlockCard(Chisaki.ID);
+        UnlockTracker.unlockCard(Twice.ID);
+        UnlockTracker.unlockCard(ProminenceBurn.ID);
+        UnlockTracker.unlockCard(USA_Smash.ID);
+        UnlockTracker.unlockCard(SkinnyGum.ID);
+        UnlockTracker.unlockCard(FatGum.ID);
+        UnlockTracker.unlockCard(Aoyama.ID);
+        UnlockTracker.unlockCard(Mineta.ID);
+        UnlockTracker.unlockCard(Hatsume.ID);
+        UnlockTracker.unlockCard(Rei.ID);
+        UnlockTracker.unlockCard(Dabi.ID);
+        UnlockTracker.unlockCard(Kendo.ID);
+        UnlockTracker.unlockCard(TetsuTetsu.ID);
+        UnlockTracker.unlockCard(Muscular.ID);
+        UnlockTracker.unlockCard(Nomu.ID);
+        UnlockTracker.unlockCard(Rappa.ID);
+        UnlockTracker.unlockCard(Kirishima.ID);
+        UnlockTracker.unlockCard(Eri.ID);
 
         logger.info("Done adding cards!");
     }

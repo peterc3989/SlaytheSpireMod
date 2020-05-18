@@ -2,6 +2,7 @@ package animeID.cards.CommonSkills;
 
 import animeID.MyHeroMod;
 import animeID.cards.AbstractDynamicCard;
+import animeID.powers.KaminariPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -54,9 +55,9 @@ public class Kaminari extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(
                 new ChannelAction(new Lightning()));
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p,p,new ConfusionPower(p)));
+                new ApplyPowerAction(p,p,new ConfusionPower(p),1));
         AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(p,p, new ConfusionPower(p)));
+                new ApplyPowerAction(p,p,new KaminariPower(p,p,1),1));
 
     }
 

@@ -1,10 +1,11 @@
-package animeID.cards.RareSkills;
+package animeID.cards.UncommonAttacks;
 
 import animeID.MyHeroMod;
 import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,42 +17,42 @@ import animeID.characters.TheDefault;
 
 import static animeID.MyHeroMod.makeCardPath;
 
-public class PlusUltra extends AbstractDynamicCard {
+public class Twice extends AbstractDynamicCard {
 
-    public static final String ID = MyHeroMod.makeID(PlusUltra.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = MyHeroMod.makeID(Twice.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 
-    public static final String IMG = makeCardPath("PlusUltra.png");//
+    public static final String IMG = makeCardPath("Twice.png");//
 
 
     // /TEXT DECLARATION/
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 0;
     private static final int UPGRADED_COST = 0;
 
-    private static final int DAMAGE = 0;
-    private static final int UPGRADE_PLUS_DMG = 0;
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_PLUS_DMG = 9;
 
     // /STAT DECLARATION/
 
-    public PlusUltra() {
+    public Twice() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //CardCrawlGame.sound.play("animeID:PlusUltra");
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(3));
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Twice(),1,true,true));
     }
 
 
@@ -63,7 +64,6 @@ public class PlusUltra extends AbstractDynamicCard {
             upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
-            this.exhaust = false;
         }
     }
 }

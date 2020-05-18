@@ -9,6 +9,40 @@
 },
 "animeID:ShigarakiPower": {
         "NAME": "Shigaraki",
-        "DESCRIPTIONS": ["Exhaust everything.", " enemy." , " enemies."]
+        "DESCRIPTIONS": ["Exhaust everything."]
+},
+"animeID:MomoPower": {
+        "NAME": "Momo",
+        "DESCRIPTIONS": ["At the start of turn Draw #b", " and Discard #b","."]
+},
+"animeID:TsuyuPower": {
+        "NAME": "Tsuyu",
+        "DESCRIPTIONS": ["At the end of turn if you have 3 or more Cards in hand gain #b", " Dexterity." , " enemies."]
+},
+"animeID:ChisakiPower": {
+        "NAME": "Chisaki",
+        "DESCRIPTIONS": ["At the start of your turn Overhaul." , " enemies."]
+},
+"animeID:SkinnyGumPower": {
+        "NAME": "SkinnyGum",
+        "DESCRIPTIONS": ["Reflect double the damage back." , " enemies."]
+},
+"animeID:KaminariPower": {
+        "NAME": "Kaminari",
+        "DESCRIPTIONS": ["Confused." , " enemies."]
+},
+"animeID:HawksPower": {
+        "NAME": "Hawks",
+        "DESCRIPTIONS": ["Take 50% reduced damage and generate a Shiv at the start of your turn." , " enemies."]
+},
+"animeID:EriPower": {
+        "NAME": "Eri",
+        "DESCRIPTIONS": [ "Retrieve a Card from the Exhaust pile at the start of your turn. If pile is empty take 5 damage." , " enemies."]
+},
+"animeID:DabiPower": {
+        "NAME": "Dabi",
+        "DESCRIPTIONS": [ "When you Exhaust Channel a Fire Orb." , " enemies."]
 }
+
+
 }
