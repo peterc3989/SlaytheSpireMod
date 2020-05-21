@@ -36,7 +36,7 @@ public class FatGum extends AbstractDynamicCard {
     private static final int COST = 2;
     private static final int UPGRADED_COST = 2;
     private static final int MAGIC = 5;
-    private static final int UPGRADE_MAGIC = 8;
+    private static final int UPGRADE_MAGIC = 3;
 
     // /STAT DECLARATION/
 

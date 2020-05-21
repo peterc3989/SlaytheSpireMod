@@ -29,9 +29,9 @@ public class Chisaki extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 3;
-    private static final int UPGRADED_COST = 3;
+    private static final int UPGRADED_COST = 2;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 0;
 
     // /STAT DECLARATION/
 

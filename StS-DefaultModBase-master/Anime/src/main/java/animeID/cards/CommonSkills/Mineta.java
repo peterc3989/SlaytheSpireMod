@@ -36,7 +36,7 @@ public class Mineta extends AbstractDynamicCard {
     private static final int COST = 1;
     private static final int UPGRADED_COST = 1;
     private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 2;
 
 
     // /STAT DECLARATION/

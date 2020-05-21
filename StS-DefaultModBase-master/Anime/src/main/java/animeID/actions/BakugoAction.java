@@ -24,12 +24,14 @@ import java.util.Iterator;
 public class BakugoAction extends AbstractGameAction {
     private AbstractPlayer p;
     private int[] multidamage;
+    private boolean upgraded;
     public BakugoAction(final AbstractPlayer p, final int[] multidamage,
-                        final DamageInfo.DamageType damageTypeForTurn){
+                        final DamageInfo.DamageType damageTypeForTurn,boolean upgraded){
         this.p = p;
         this.multidamage=multidamage;
         this.actionType = ActionType.DAMAGE;
         this.damageType = damageTypeForTurn;
+        this.upgraded=upgraded;
     }
 
     @Override
@@ -60,10 +62,11 @@ public class BakugoAction extends AbstractGameAction {
         for(int i = 0; i < AbstractDungeon.getCurrRoom().monsters.monsters.size(); ++i) {
             AbstractMonster target = (AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
             if (!target.isDying && target.currentHealth > 0 && !target.isEscaping) {
+                int curr =target.currentHealth+target.currentBlock;
                 DamageInfo info =new DamageInfo(this.source, this.multidamage[i], this.damageType);
                 target.damage(info);
-                if ( info.output >target.currentHealth) {
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Bakugo(true), 1));
+                if ( info.output >curr) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Bakugo(true,upgraded), 1));
                 }
             }
         }

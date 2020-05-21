@@ -17,7 +17,7 @@
     "NAME": "HeroCostume",
     "FLAVOR": "You feel stronger.",
     "DESCRIPTIONS": [
-      "For every 10 Cards played, Heal 1."
+      "For every 10 Cards played, Heal 2."
     ]
   },
   "animeID:DefaultClickableRelic": {

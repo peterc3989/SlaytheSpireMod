@@ -37,9 +37,9 @@ public class Mezo extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1;
 
     private static final int DAMAGE = 3;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 1;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 

@@ -31,7 +31,7 @@
   },
   "animeID:TodorokiShoto": {
     "NAME": "Todoroki Shoto",
-    "DESCRIPTION": "Channel a [#ff0000]Fire[] and [#0000ff]Ice[] orb."
+    "DESCRIPTION": "Channel a [#ff0000]Fire[] and [#0000ff]Frost[] orb."
   },
   "animeID:RedRiot": {
     "NAME": "Unbreakable",
@@ -40,6 +40,10 @@
   "animeID:AllMight": {
     "NAME": "AllMight",
     "DESCRIPTION": "Gain !M! Strength. NL Lose 4 HP. NL Frail for 2 turns."
+  },
+  "animeID:Mina": {
+    "NAME": "Mina",
+    "DESCRIPTION": "Apply !D! Poison to an enemy."
   },
   "animeID:MirioTogata": {
     "NAME": "MirioTogata",
@@ -55,11 +59,21 @@
   },
   "animeID:PlusUltra": {
     "NAME": "Plus Ultra",
-    "DESCRIPTION": "Gain 3 Energy. NL Exhaust."
+    "DESCRIPTION": "Gain 3 Energy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 3 Energy."
+  },
+  "animeID:Tamaki": {
+    "NAME": "Tamaki",
+    "DESCRIPTION": "Draw a random Attack, Skill, and Power. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw a random Attack, Skill, and Power."
   },
   "animeID:ToruHagakure": {
     "NAME": "ToruHagakure",
     "DESCRIPTION": ""
+  },
+  "animeID:Kurono": {
+    "NAME": "Kurono",
+    "DESCRIPTION": "Draw !M!. Add 1 Curse to your draw pile."
   },
   "animeID:Mineta": {
   "NAME": "Mineta",
@@ -75,11 +89,11 @@
   },
   "animeID:Shigaraki": {
   "NAME": "Shigaraki",
-    "DESCRIPTION": "Exhaust every card you play."
+    "DESCRIPTION": "animeID:decay. At the start of your turn apply 5 Poison to everything for each Card in your Exhaust pile."
   },
   "animeID:Ojiro": {
   "NAME": "Ojiro",
-    "DESCRIPTION": "Exhaust every card you play."
+    "DESCRIPTION": "Deal !D! damage twice to ALL enemies."
   },
   "animeID:Mezo": {
   "NAME": "Mezo",
@@ -99,7 +113,7 @@
   },
   "animeID:EraserHead": {
   "NAME": "EraserHead",
-    "DESCRIPTION": "Remove all enemy Buffs."
+    "DESCRIPTION": "Remove all enemy Buffs and Debuffs."
   },
   "animeID:Chisaki": {
   "NAME": "Chisaki",
@@ -108,6 +122,14 @@
   "animeID:Twice": {
   "NAME": "Twice",
     "DESCRIPTION": "Deal !D! damage. Add a copy of this card into your deck this battle."
+  },
+  "animeID:GranTorino": {
+  "NAME": "GranTorino",
+    "DESCRIPTION": "Draw !M! NL Exhaust."
+  },
+  "animeID:ShootStyle": {
+  "NAME": "ShootStyle",
+    "DESCRIPTION": "Draw !M! and Gain !M! Dexterity at the start of each turn."
   },
   "animeID:SkinnyGum": {
   "NAME": "SkinnyGum",
@@ -131,11 +153,11 @@
   },
   "animeID:USA_Smash": {
   "NAME": "USA_Smash",
-    "DESCRIPTION": "Deal !D! damage to one enemy."
+    "DESCRIPTION": "Deal !D! damage to an enemy."
   },
   "animeID:ProminenceBurn": {
   "NAME": "ProminenceBurn",
-    "DESCRIPTION": "Evoke your Orb 10 times."
+    "DESCRIPTION": "Evoke your next Orb 10 times."
   },
   "animeID:Rei": {
   "NAME": "Rei",
@@ -171,15 +193,68 @@
   },
   "animeID:Kirishima": {
   "NAME": "Kirishima",
-    "DESCRIPTION": "Gain !M! Block. Can't play any attacks this turn."
+    "DESCRIPTION": "Gain !D! Block. NL Deal !D! damage."
   },
   "animeID:Iida": {
   "NAME": "Iida",
-    "DESCRIPTION": "Discard !M! Cards. Gain !M! Energy."
+    "DESCRIPTION": "Discard !M! Card. Gain !M! Energy.",
+    "UPGRADE_DESCRIPTION": "Discard !M! Cards. Gain !M! Energy."
   },
   "animeID:Eri": {
   "NAME": "Eri",
     "DESCRIPTION": "Retrieve a Card from the Exhaust pile at the start of your turn. If pile is empty take 5 damage."
+  },
+  "animeID:RecoveryGirl": {
+  "NAME": "RecoveryGirl",
+    "DESCRIPTION": "Ethereal NL Exhaust NL Heal !M!."
+  },
+  "animeID:Cementoss": {
+  "NAME": "Cementoss",
+    "DESCRIPTION": "Gain !M! Block for every Card in your hand."
+  },
+  "animeID:NightEye": {
+  "NAME": "NightEye",
+    "DESCRIPTION": "Gain !M! Strength, Dexterity, or Focus depending on enemy action."
+  },
+  "animeID:HowitzerImpact": {
+  "NAME": "HowitzerImpact",
+    "DESCRIPTION": "Deal !D! damage. On animeID:overkill gain 2 Energy."
+  },
+  "animeID:Himiko": {
+  "NAME": "Himiko",
+    "DESCRIPTION": "Select a Card from your draw pile and add it to your hand. Add a Curse to your draw pile."
+  },
+  "animeID:GentleCriminal": {
+  "NAME": "GentleCriminal",
+    "DESCRIPTION": "Gain !M! Gold and add a Curse to your draw pile."
+  },
+  "animeID:MtLady": {
+  "NAME": "MtLady",
+    "DESCRIPTION": "Deal !D! to an enemy. Gain 2 Vulnerable."
+  },
+  "animeID:PresentMic": {
+  "NAME": "PresentMic",
+    "DESCRIPTION": "Your next Card this turn is played twice."
+  },
+  "animeID:Crystallize": {
+  "NAME": "Crystallize",
+    "DESCRIPTION": "When a Card is Exhausted, gain !M! Block."
+  },
+  "animeID:Smash": {
+  "NAME": "Smash",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "animeID:DefendMH": {
+  "NAME": "Defend",
+    "DESCRIPTION": "Gain !M! Block."
+  },
+  "animeID:Thirteen": {
+  "NAME": "Thirteen",
+    "DESCRIPTION": "Channel 2 Dark."
+  },
+  "animeID:Stain": {
+  "NAME": "Stain",
+    "DESCRIPTION": "If you have a Curse in your Draw pile, Bloodlust !D!."
   }
 
 }

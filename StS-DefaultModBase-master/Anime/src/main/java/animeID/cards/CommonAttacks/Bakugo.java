@@ -6,6 +6,7 @@ import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -37,7 +38,7 @@ public class Bakugo extends AbstractDynamicCard {
     private static int UPGRADED_COST = 1;
 
     private static final int DAMAGE = 8;
-    private static final int UPGRADE_PLUS_DMG = 11;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
@@ -47,20 +48,21 @@ public class Bakugo extends AbstractDynamicCard {
         this.isMultiDamage = true;
     }
 
-    public Bakugo(boolean freeToplay) {
+    public Bakugo(boolean freeToplay,boolean upgraded) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         this.isMultiDamage = true;
-        COST = 0;
-        UPGRADED_COST = 0;
+        freeToPlayOnce=freeToplay;
+        this.upgraded=upgraded;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("ATTACK_FIRE"));
         AbstractDungeon.actionManager.addToBottom(
-                new BakugoAction(p, multiDamage,damageTypeForTurn));
+                new BakugoAction(p, multiDamage,damageTypeForTurn,this.upgraded));
     }
 
 

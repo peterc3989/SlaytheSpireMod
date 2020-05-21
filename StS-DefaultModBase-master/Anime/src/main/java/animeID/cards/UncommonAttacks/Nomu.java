@@ -6,6 +6,7 @@ import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -37,10 +38,10 @@ public class Nomu extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1;
 
     private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 13;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     private static final int MAGIC = 10;
-    private static final int UPGRADE_MAGIC = 13;
+    private static final int UPGRADE_MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -54,6 +55,7 @@ public class Nomu extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("BLUNT_HEAVY"));
         AbstractDungeon.actionManager.addToBottom(
                 new NomuAction(p,m,baseDamage,0,this.damageType));
     }

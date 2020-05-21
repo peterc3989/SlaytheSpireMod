@@ -1,13 +1,15 @@
 package animeID.characters;
 
-import animeID.cards.CommonAttacks.Aoyama;
 import animeID.cards.CommonAttacks.Bakugo;
-import animeID.cards.RareAttacks.ProminenceBurn;
+import animeID.cards.CommonPowers.Momo;
+import animeID.cards.CommonPowers.Tsuyu;
+import animeID.cards.CommonSkills.Kaminari;
+import animeID.cards.RareSkills.ProminenceBurn;
 import animeID.cards.RarePowers.*;
 import animeID.cards.RareSkills.*;
-import animeID.cards.UncommonAttacks.Kendo;
-import animeID.cards.UncommonAttacks.Rappa;
-import animeID.cards.UncommonAttacks.Twice;
+import animeID.cards.UncommonAttacks.*;
+import animeID.cards.UncommonPowers.Crystallize;
+import animeID.cards.UncommonPowers.Dabi;
 import animeID.cards.UncommonSkills.Hatsume;
 import animeID.cards.UncommonSkills.*;
 import animeID.relics.HeroCostume;
@@ -75,7 +77,7 @@ public class TheDefault extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 8;
+    public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 3;
 
     // =============== /BASE STATS/ =================
@@ -167,16 +169,16 @@ public class TheDefault extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
+        retVal.add(Deku.ID);
         retVal.add(Bakugo.ID);
-        retVal.add(Twice.ID);
-        retVal.add(PlusUltra.ID);
-        retVal.add(Kendo.ID);
-        retVal.add(Hatsume.ID);
-        retVal.add(ProminenceBurn.ID);
-        retVal.add(Muscular.ID);
-        retVal.add(Rappa.ID);
-        retVal.add(Chisaki.ID);
-        retVal.add(Aoyama.ID);
+        retVal.add(Smash.ID);
+        retVal.add(Smash.ID);
+        retVal.add(Smash.ID);
+        retVal.add(Smash.ID);
+        retVal.add(DefendMH.ID);
+        retVal.add(DefendMH.ID);
+        retVal.add(DefendMH.ID);
+        retVal.add(DefendMH.ID);
 
         return retVal;
     }

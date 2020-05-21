@@ -4,15 +4,16 @@ import animeID.cards.CommonPowers.Momo;
 import animeID.cards.CommonPowers.Tsuyu;
 import animeID.cards.CommonSkills.*;
 import animeID.cards.CommonAttacks.*;
-import animeID.cards.RareAttacks.ProminenceBurn;
+import animeID.cards.DefendMH;
+import animeID.cards.RareSkills.ProminenceBurn;
 import animeID.cards.RareAttacks.USA_Smash;
 import animeID.cards.RareSkills.*;
 import animeID.cards.RarePowers.*;
-import animeID.cards.UncommonAttacks.Kendo;
-import animeID.cards.UncommonAttacks.Nomu;
-import animeID.cards.UncommonAttacks.Rappa;
-import animeID.cards.UncommonAttacks.Twice;
+import animeID.cards.Smash;
+import animeID.cards.UncommonAttacks.*;
+import animeID.cards.UncommonPowers.Crystallize;
 import animeID.cards.UncommonPowers.Dabi;
+import animeID.cards.UncommonPowers.GentleCriminal;
 import animeID.cards.UncommonSkills.Hatsume;
 import animeID.cards.UncommonPowers.Rei;
 import animeID.cards.UncommonSkills.*;
@@ -74,9 +75,9 @@ public class MyHeroMod implements
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
-    private static final String MODNAME = "Anime Mod";
-    private static final String AUTHOR = "Gremious"; // And pretty soon - You!
-    private static final String DESCRIPTION = "A base for Slay the Spire to start your own mod from, feat. the Default.";
+    private static final String MODNAME = "TheHero";
+    private static final String AUTHOR = "PC3989";
+    private static final String DESCRIPTION = ":)";
     
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -367,7 +368,6 @@ public class MyHeroMod implements
        // BaseMod.addCard(new DefaultRareAttack());
        // BaseMod.addCard(new DefaultRareSkill());
        // BaseMod.addCard(new DefaultRarePower());
-
         BaseMod.addCard(new TodorokiShoto());
         BaseMod.addCard(new RedRiot());
         BaseMod.addCard(new AllMight());
@@ -404,6 +404,26 @@ public class MyHeroMod implements
         BaseMod.addCard(new Rappa());
         BaseMod.addCard(new Kirishima());
         BaseMod.addCard(new Eri());
+        BaseMod.addCard(new HowitzerImpact());
+        BaseMod.addCard(new NightEye());
+        BaseMod.addCard(new Tengai());
+        BaseMod.addCard(new RecoveryGirl());
+        BaseMod.addCard(new Cementoss());
+        BaseMod.addCard(new Himiko());
+        BaseMod.addCard(new GentleCriminal());
+        BaseMod.addCard(new MtLady());
+        BaseMod.addCard(new PresentMic());
+        BaseMod.addCard(new Crystallize());
+        BaseMod.addCard(new Smash());
+        BaseMod.addCard(new DefendMH());
+        BaseMod.addCard(new Iida());
+        BaseMod.addCard(new Thirteen());
+        BaseMod.addCard(new Hawks());
+        BaseMod.addCard(new Tamaki());
+        BaseMod.addCard(new Kurono());
+        BaseMod.addCard(new GranTorino());
+        BaseMod.addCard(new ShootStyle());
+        BaseMod.addCard(new Stain());
 
         logger.info("Making sure the cards are unlocked.");
         //UnlockTracker.unlockCard(OrbSkill.ID);
@@ -418,6 +438,8 @@ public class MyHeroMod implements
         //UnlockTracker.unlockCard(DefaultRareAttack.ID);
        // UnlockTracker.unlockCard(DefaultRareSkill.ID);
        // UnlockTracker.unlockCard(DefaultRarePower.ID);
+
+
         UnlockTracker.unlockCard(TodorokiShoto.ID);
         UnlockTracker.unlockCard(RedRiot.ID);
         UnlockTracker.unlockCard(AllMight.ID);
@@ -454,6 +476,28 @@ public class MyHeroMod implements
         UnlockTracker.unlockCard(Rappa.ID);
         UnlockTracker.unlockCard(Kirishima.ID);
         UnlockTracker.unlockCard(Eri.ID);
+        UnlockTracker.unlockCard(HowitzerImpact.ID);
+        UnlockTracker.unlockCard(NightEye.ID);
+        UnlockTracker.unlockCard(RecoveryGirl.ID);
+        UnlockTracker.unlockCard(Tengai.ID);
+        UnlockTracker.unlockCard(Cementoss.ID);
+        UnlockTracker.unlockCard(Himiko.ID);
+        UnlockTracker.unlockCard(GentleCriminal.ID);
+        UnlockTracker.unlockCard(MtLady.ID);
+        UnlockTracker.unlockCard(PresentMic.ID);
+        UnlockTracker.unlockCard(Crystallize.ID);
+        UnlockTracker.unlockCard(Smash.ID);
+        UnlockTracker.unlockCard(DefendMH.ID);
+        UnlockTracker.unlockCard(Iida.ID);
+        UnlockTracker.unlockCard(Thirteen.ID);
+        UnlockTracker.unlockCard(Hawks.ID);
+        UnlockTracker.unlockCard(Tamaki.ID);
+        UnlockTracker.unlockCard(Kurono.ID);
+        UnlockTracker.unlockCard(ShootStyle.ID);
+        UnlockTracker.unlockCard(GranTorino.ID);
+        UnlockTracker.unlockCard(Stain.ID);
+
+
 
         logger.info("Done adding cards!");
     }

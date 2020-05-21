@@ -37,7 +37,7 @@ public class Twice extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DMG = 9;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 

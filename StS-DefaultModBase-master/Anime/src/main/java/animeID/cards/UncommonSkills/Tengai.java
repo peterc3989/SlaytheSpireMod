@@ -37,7 +37,7 @@ public class Tengai extends AbstractDynamicCard {
     private static final int COST = 2;
     private static final int UPGRADED_COST = 2;
     private static final int MAGIC = 14;
-    private static final int UPGRADE_MAGIC = 18;
+    private static final int UPGRADE_MAGIC = 4;
 
     // /STAT DECLARATION/
 

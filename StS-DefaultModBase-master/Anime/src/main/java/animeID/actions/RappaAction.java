@@ -27,13 +27,15 @@ public class RappaAction extends AbstractGameAction {
     private AbstractPlayer p;
     private AbstractMonster m;
     private int damage;
+    private boolean upgraded;
     public RappaAction(final AbstractPlayer p, final AbstractMonster m,final int damage,
-                        final DamageInfo.DamageType damageTypeForTurn){
+                        final DamageInfo.DamageType damageTypeForTurn,boolean upgraded){
         this.p = p;
         this.m =m;
         this.damage = damage;
         this.actionType = ActionType.DAMAGE;
         this.damageType = damageTypeForTurn;
+        this.upgraded=upgraded;
     }
 
     @Override
@@ -43,7 +45,7 @@ public class RappaAction extends AbstractGameAction {
 
 
                 if ( m.currentBlock>info.output) {
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Rappa(true), 1));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Rappa(true,upgraded), 1));
                 }
 
 

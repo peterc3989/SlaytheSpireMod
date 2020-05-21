@@ -21,27 +21,43 @@
 },
 "animeID:ChisakiPower": {
         "NAME": "Chisaki",
-        "DESCRIPTIONS": ["At the start of your turn Overhaul." , " enemies."]
+        "DESCRIPTIONS": ["At the start of your turn Overhaul." ]
 },
 "animeID:SkinnyGumPower": {
         "NAME": "SkinnyGum",
-        "DESCRIPTIONS": ["Reflect double the damage back." , " enemies."]
+        "DESCRIPTIONS": ["Reflect double the damage back." ]
 },
 "animeID:KaminariPower": {
         "NAME": "Kaminari",
-        "DESCRIPTIONS": ["Confused." , " enemies."]
+        "DESCRIPTIONS": ["Confused.","" ]
 },
 "animeID:HawksPower": {
         "NAME": "Hawks",
-        "DESCRIPTIONS": ["Take 50% reduced damage and generate a Shiv at the start of your turn." , " enemies."]
+        "DESCRIPTIONS": ["Take 50% reduced damage and generate a Shiv at the start of your turn."]
 },
 "animeID:EriPower": {
         "NAME": "Eri",
-        "DESCRIPTIONS": [ "Retrieve a Card from the Exhaust pile at the start of your turn. If pile is empty take 5 damage." , " enemies."]
+        "DESCRIPTIONS": [ "Retrieve a Card from the Exhaust pile at the start of your turn. If pile is empty take 5 damage." ]
 },
 "animeID:DabiPower": {
         "NAME": "Dabi",
-        "DESCRIPTIONS": [ "When you Exhaust Channel a Fire Orb." , " enemies."]
+        "DESCRIPTIONS": [ "When you Exhaust Channel a Fire Orb.","" ]
+},
+"animeID:BurnPower": {
+        "NAME": "Burn",
+        "DESCRIPTIONS": [ "Take damage each turn for each stack." ]
+},
+"animeID:PresentMicPower": {
+        "NAME": "PresentMicPower",
+        "DESCRIPTIONS": [ "Your next Card is played twice." ]
+},
+"animeID:CrystallizePower": {
+        "NAME": "Crystallize",
+        "DESCRIPTIONS": [ "When you Exhaust, gain 3 Block." ]
+},
+"animeID:ShootStylePower": {
+        "NAME": "ShootStyle",
+        "DESCRIPTIONS": [ "Gain #b"," Dexterity and Draw #b" ]
 }
 
 

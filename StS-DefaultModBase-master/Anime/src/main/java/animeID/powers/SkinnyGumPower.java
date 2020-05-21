@@ -25,8 +25,8 @@ public class SkinnyGumPower extends AbstractPower implements CloneablePowerInter
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SkinnyGumPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SkinnyGumPower32.png"));
 
     public SkinnyGumPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -40,6 +40,7 @@ public class SkinnyGumPower extends AbstractPower implements CloneablePowerInter
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        updateDescription();
     }
 
     @Override
@@ -59,7 +60,7 @@ public class SkinnyGumPower extends AbstractPower implements CloneablePowerInter
     }
     @Override
     public void updateDescription() {
-
+        description = DESCRIPTIONS[0];
     }
 
     @Override

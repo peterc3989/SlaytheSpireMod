@@ -30,8 +30,8 @@ public class HawksPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private int storedAmount;
-    private static final Texture tex84 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power84.png");
-    private static final Texture tex32 = TextureLoader.getTexture("animeIDResources/images/powers/placeholder_power32.png");
+    private static final Texture tex84 = TextureLoader.getTexture("animeIDResources/images/powers/HawksPower84.png");
+    private static final Texture tex32 = TextureLoader.getTexture("animeIDResources/images/powers/HawksPower32.png");
     public HawksPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = "HawksPower";
@@ -50,7 +50,7 @@ public class HawksPower extends AbstractPower {
     }
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0];
     }
     @Override
     public void atStartOfTurn() {

@@ -1,6 +1,7 @@
 package animeID.cards.UncommonAttacks;
 
 import animeID.MyHeroMod;
+import animeID.actions.HowitzerImpactAction;
 import animeID.cards.AbstractDynamicCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -28,7 +29,7 @@ public class HowitzerImpact extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
@@ -37,7 +38,7 @@ public class HowitzerImpact extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 2;
 
     private static final int DAMAGE = 25;
-    private static final int UPGRADE_PLUS_DMG = 25;
+    private static final int UPGRADE_PLUS_DMG = 0;
 
     // /STAT DECLARATION/
 
@@ -54,7 +55,7 @@ public class HowitzerImpact extends AbstractDynamicCard {
             this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
         }
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                new HowitzerImpactAction(p,m,damage,damageTypeForTurn));
     }
 
 

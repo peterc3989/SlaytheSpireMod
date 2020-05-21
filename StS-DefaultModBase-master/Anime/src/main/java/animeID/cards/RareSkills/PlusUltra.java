@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import animeID.characters.TheDefault;
 
 import static animeID.MyHeroMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class PlusUltra extends AbstractDynamicCard {
 
@@ -62,6 +63,7 @@ public class PlusUltra extends AbstractDynamicCard {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeBaseCost(UPGRADED_COST);
+            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
             this.exhaust = false;
         }

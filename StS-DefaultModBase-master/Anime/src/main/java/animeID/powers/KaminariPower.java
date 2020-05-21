@@ -25,8 +25,8 @@ public class KaminariPower extends AbstractPower implements CloneablePowerInterf
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("KaminariPower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("KaminariPower32.png"));
 
     public KaminariPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -40,6 +40,7 @@ public class KaminariPower extends AbstractPower implements CloneablePowerInterf
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        updateDescription();
     }
 
     @Override
@@ -60,7 +61,7 @@ public class KaminariPower extends AbstractPower implements CloneablePowerInterf
     }
     @Override
     public void updateDescription() {
-
+        description = DESCRIPTIONS[0];
     }
 
     @Override

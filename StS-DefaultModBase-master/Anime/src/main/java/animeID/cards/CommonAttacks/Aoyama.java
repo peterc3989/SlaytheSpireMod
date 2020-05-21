@@ -38,8 +38,8 @@ public class Aoyama extends AbstractDynamicCard {
     private static final int COST = 2;
     private static final int UPGRADED_COST = 2;
 
-    private static final int DAMAGE = 14;
-    private static final int UPGRADE_PLUS_DMG = 18;
+    private static final int DAMAGE = 15;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 

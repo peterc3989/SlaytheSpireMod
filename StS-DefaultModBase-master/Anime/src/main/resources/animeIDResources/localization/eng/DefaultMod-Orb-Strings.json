@@ -1,11 +1,13 @@
 {
-  "animeID:DefaultOrb": {
+  "animeID:FireOrb": {
     "NAME": "Fire Orb",
     "DESCRIPTION": [
-      "#yPassive: At the start of your turn, draw #b",
-      " card.",
-      " cards.",
-      "NL #yEvoke: Deal #b damage to all enemies."
+      "#yPassive: At the start of your turn, deal #b",
+      " damage and apply #b",
+      " burn.",
+      " NL #yEvoke: Deal #b ",
+      " damage and apply #b",
+      " burn."
     ]
   }
 }

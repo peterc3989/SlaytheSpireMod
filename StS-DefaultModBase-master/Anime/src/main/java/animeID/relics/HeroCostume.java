@@ -50,7 +50,7 @@ public class HeroCostume extends CustomRelic implements ClickableRelic { // You 
         AbstractPlayer p = AbstractDungeon.player;
         this.count++;
         if(count==10){
-            p.heal(1);
+            p.heal(2);
             count=0;
         }
 

@@ -38,7 +38,7 @@ public class Tsuyu extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1;
 
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 

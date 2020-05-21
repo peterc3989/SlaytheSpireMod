@@ -1,11 +1,19 @@
 [
   {
-    "PROPER_NAME": "Smash",
+    "PROPER_NAME": "Decay",
     "NAMES": [
-      "Smash",
-      "this"
+      "Decay",
+      "decay"
     ],
-    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+    "DESCRIPTION": "Exhaust every card you play."
+  },
+  {
+  "PROPER_NAME": "Burn",
+    "NAMES": [
+      "Burn",
+      "burn"
+    ],
+    "DESCRIPTION": "Take damage each turn for each stack."
   },
   {
     "NAMES": [
